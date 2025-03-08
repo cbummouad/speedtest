@@ -1,0 +1,27 @@
+Here is the comprehensive plan to address the "Unauthorized" issue:
+
+### Plan:
+
+1. **Review the Login Logic**:
+   - Ensure that the credentials being passed to the `Auth::attempt()` method in the `login` function are correct.
+   - Check if the user exists in the database and if the password is being hashed and verified correctly.
+
+2. **Validate User Registration**:
+   - Confirm that the user registration process in the `register` method is functioning correctly, including validation rules and user creation.
+   - Ensure that the password is being hashed properly when a new user is created.
+
+3. **Token Generation**:
+   - Verify that the token generation process in the `login` method is working as expected. This includes checking if the user is authenticated before generating the token.
+
+4. **Check Configuration Files**:
+   - Review the `config/sanctum.php` and `config/auth.php` files to ensure that the authentication settings are correctly configured for the application.
+
+5. **Frontend Logic**:
+   - Inspect the `resources/js/Pages/Auth/Login.jsx` file to ensure that the login form is correctly submitting the credentials and handling the response from the server.
+
+6. **Testing**:
+   - After making any necessary changes, test the login functionality to ensure that users can authenticate successfully and receive a valid token.
+
+### Follow-up Steps:
+- Implement the changes based on the findings from the review.
+- Test the application to confirm that the "Unauthorized" message no longer appears for valid credentials.

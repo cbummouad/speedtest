@@ -51,11 +51,13 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
+        \Log::info('Login attempt', ['credentials' => $credentials]); // Debugging line
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             return response()->json(['token' => $user->createToken('YourAppName')->plainTextToken, 'user' => $user]);
         }
 
+        \Log::warning('Unauthorized login attempt', ['credentials' => $credentials]); // Debugging line
         return response()->json(['message' => 'Unauthorized'], 401);
     }
 
